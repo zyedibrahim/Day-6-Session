@@ -1,0 +1,290 @@
+Day 6 Task
+
+Question 
+1) https://github.com/rvsp/typescript-oops/blob/master/Practice/Movie.md
+==============================================
+a) Write a constructor for the class Movie,
+ which takes a String representing the title 
+ of the movie, a String representing the studio,
+  and a String representing the rating as its
+   arguments, and sets the respective class 
+   properties to these values.
+================================================
+class Movie{
+  
+  constructor(title,studio,rating){
+  this.title=title;
+  this.studio=studio;
+  this.rating=rating;
+  
+   }
+   
+   printmovied(){
+     return this.title + this.studio+this.rating
+   }
+   
+}
+   
+   var result = new Movie("Royal Casio","Eon studio","PG13")
+   console.log(result.title)
+   console.log(result.studio)
+   console.log(result.rating)
+
+Output:
+
+Royal Casio
+Eon studio
+PG13
+
+====================================================================
+b)The constructor for the class Movie will set the class property rating 
+to "PG" as default when no rating is provided.
+=======================================================================
+class Movie{
+  
+  constructor(title,studio,rating){
+  this.title=title;
+  this.studio=studio;
+   
+  if(rating==undefined){
+    this.rating ="PG"
+  }
+  else{
+    this.rating=rating
+  }
+  
+   }
+   
+}
+  var movie0 = new Movie("Royal Casio","Eon studio")
+   var movie1 = new Movie("Adam","Artstudio","PG13")
+       console.log(movie0);
+       console.log(movie1)
+    
+    Output:
+
+    Movie { title: 'Royal Casio', studio: 'Eon studio', rating: 'PG' }
+    Movie { title: 'Adam', studio: 'Artstudio', rating: 'PG13' }
+
+=======================================================================
+c) Write a method getPG, which takes an array of base type Movie 
+as its argument, and returns a new array of only those movies in the 
+input array with a rating of "PG". You may assume the input array is 
+full of Movie instances. The returned array need not be full.
+=======================================================================
+
+class Movie{
+  
+  constructor(title,studio,rating){
+  this.title=title;
+  this.studio=studio;
+   
+  if(rating==undefined){
+    this.rating ="PG"
+  }
+  else{
+    this.rating=rating
+  }
+  
+   }
+   
+   
+   
+   getPG(arraylink){
+   var result =[];
+     for(var i =0;i< arraylink.length;i++){
+       if(arraylink[i].rating == "PG" ){
+          result.push(arraylink[i]);
+       }
+     }
+     return result;
+     
+   }
+
+   
+}
+   
+  var movie0 = new Movie("Royal Casio","Eon studio")
+   var movie1 = new Movie("Adam","Artstudio","PG13")
+   var movie2 = new Movie("X-men","FoxStudio")
+   var movie3 = new Movie("GhostRider","GhostStudio","PG12")
+  var arr=[movie0,movie1,movie2,movie3];
+  console.log(movie1.getPG(arr));
+       
+       Output:
+
+[
+  Movie { title: 'Royal Casio', studio: 'Eon studio', rating: 'PG' },
+  Movie { title: 'X-men', studio: 'FoxStudio', rating: 'PG' }
+]
+       
+==============================================================================
+d) Write a piece of code that creates an instance of the class Movie with the
+ title “Casino Royale”, the studio “Eon Productions”, and the rating “PG­13”
+==============================================================================
+class Movie{
+  
+  constructor(title,studio,rating){
+  this.title=title;
+  this.studio=studio;
+   
+  if(rating==undefined){
+    this.rating ="PG"
+  }
+  else{
+    this.rating=rating
+  }
+  
+   }
+   
+}
+   
+  var movie0 = new Movie("Royal Casio","Eon studio")
+   var movie1 = new Movie("Adam","Artstudio","PG13")
+   var movie2 = new Movie("X-men","FoxStudio")
+   var movie3 = new Movie("GhostRider","GhostStudio","PG12")
+  console.log(movie0);
+       
+   Output:
+
+Movie { title: 'Royal Casio', studio: 'Eon studio', rating: 'PG' }
+
+
+
+
+================================================================================
+Question
+2) https://github.com/rvsp/typescript-oops/blob/master/Practice/class-circle.md
+
+
+class Circle{
+  
+constructor(radius,color){
+  this.radius=radius;
+  this.color=color;
+}
+
+get radiusofcircle(){
+  return this.radius
+}
+
+set radiusofcircle(radius){
+  this.radius=radius;
+}
+
+get colorofcircle(){
+  return this.color
+}
+
+set colorofcircle(color){
+  this.color=color;
+}
+
+get toString(){
+  return `Circle[radius=${this.radius},color=${this.color}]`
+}
+
+get area(){
+  return Math.PI *this.radius *this.radius;
+}
+
+get circumreference(){
+  return 2* Math.PI* this.radius;
+}
+
+
+}
+
+var result = new Circle(1.0,"red")
+ 
+// to print circumreference
+console.log(result.circumreference)
+ 
+// to print area
+console.log(result.area)
+        
+// to print toString
+console.log(result.toString)
+
+
+console.log(result.radiusofcircle);
+result.radiusofcircle=2.2;
+console.log(result.radiusofcircle)
+
+
+
+
+
+
+
+console.log(result.radius.toFixed(1));
+console.log(result.color);
+
+
+Output:
+
+6.283185307179586
+3.141592653589793
+Circle[radius=1,color=red]
+1
+2.2
+2.2
+red
+
+
+
+====================================================================================
+Question
+3)Write a “person” class to hold all the details.
+====================================================================================
+
+class Person{
+  constructor(Name,Age,Gender,Qualification,Address,PhoneNumber){
+    this.Name=Name;
+    this.Age=Age;
+    this.Gender=Gender;
+    this.Qualification=Qualification;
+    this.Address=Address;
+    this.PhoneNumber=PhoneNumber;
+    }
+    
+printperson(str){
+  return `${str} ${this.Name} ${this.Age}  ${this.Gender} ${this.Qualification} ${this.Address} ${this.PhoneNumber}    ` 
+}
+    
+}
+
+var personDetails = new Person("syed","21","male","undergraduate","chennai","+91 9330002200")
+     var printi = personDetails.printperson("This is Result : ")
+          console.log(printi)
+
+Output:
+
+This is Result :  syed 21  male undergraduate chennai +91 9330002200    
+
+
+
+======================================================================================
+
+======================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
